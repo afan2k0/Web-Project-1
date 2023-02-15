@@ -40,14 +40,20 @@ header
 }
 
 .delete{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   align-self: flex-auto;
   opacity: 1;
+  height: 15%;
   width: 100%;
 }
 
 .delete:hover {
-  background-color: red;
-
+  background-color: rgba(173, 31, 143, 0.87);
+  box-shadow: rgba(7, 64, 179, 0.87) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: scale(1.1);
 }
 .card:hover{
   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;

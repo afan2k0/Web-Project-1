@@ -9,7 +9,7 @@ function onSubmit(e)
     e.preventDefault();
     console.log('once');
     const todoText = document.querySelector('.todo-text');
-    const date = new Date(document.querySelector('.date').value);
+    const date = new Date(document.querySelector('.date').value); //fix date formatting
     console.log(date);
     if(todoText.value === '' || date.valueAsDate === null)
     {
