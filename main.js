@@ -9,30 +9,30 @@ function onSubmit(e)
     e.preventDefault();
     const todoText = document.querySelector('.todo-text');
     const date = document.querySelector('.date');
-    if(todoText.value === '')
+    if(todoText.value === '' || date.valueAsDate === null)
     {
-        
-        console.log('invalid text');
-        console.log(todoText.value);
-
         warning.innerHTML = 'Please enter all fields';
         setTimeout(() => warning.remove(), 1000);
-        
-    }
-    else if(isNaN(date.valueAsDate))
-    {
-        console.log('invalid date');
-        console.log(date.valueAsDate);
 
-        warning.innerHTML = 'Please enter all fields';
-        setTimeout(() => warning.remove(), 1000);
     }
+
     else
     {
+        console.log(date.valueAsDate);
+        const btn = document.createElement('button');
+        btn.className = 'delete';
+        btn.innerHTML = 'delete';
+        btn.addEventListener("click", function(e) {
+            e.target.parentNode.remove();
+          });
         console.log('success');
         const li = document.createElement('li');
-        li.appendChild(document.createTextNode(`${todoText.value} ${date.value}`));
+        li.appendChild(document.createTextNode(`${date.value}`));
+        //li.appendChild(document.write('<br>'));
+        li.appendChild(document.createTextNode(`${todoText.value}`));
+        li.appendChild(btn);
         userList.appendChild(li);
+
         todoText.value = '';
         date.value = '';
     }

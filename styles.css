@@ -1,0 +1,51 @@
+*
+{
+    background-color: #36393F;
+}
+header
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color:darkgray;
+}
+.warning
+{
+    color: red;
+}
+ul {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));/*set you own values*/
+    /*demo purpose*/
+    counter-reset: lis;
+  }
+  
+  li {
+    display: block;
+    counter-increment: lis;
+  }
+  
+  li:before {
+    content: counter(lis);
+    /* end demo purpose */
+  }
+  
+  li:nth-child(4n - 1) {
+    grid-row: 3;
+    color: blue;
+  }
+  
+  li:nth-child(4n) {
+    grid-row: 4;
+    color: purple;
+  }
+  
+  li:nth-child(4n - 2) {
+    grid-row: 2;
+    color: green;
+  }
+  
+  li:nth-child(4n - 3) {
+    grid-row: 1;
+    color: red;
+  }
