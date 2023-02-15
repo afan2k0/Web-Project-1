@@ -1,7 +1,7 @@
 
 const warning = document.querySelector('.warning');
 let loginForm = document.querySelector('.todo-entry');
-const userList = document.querySelector('.basic-grid');
+const cardGrid = document.querySelector('.basic-grid');
 loginForm.addEventListener('submit', onSubmit);
 
 function onSubmit(e)
@@ -35,11 +35,18 @@ function createCard(date, todoText, e)
     console.log('success');
     const card = document.createElement('div');
     card.className='card';
-    card.appendChild(document.createTextNode(`${formattedDate}`));
+
+    const dateElement = document.createTextNode(formattedDate);
+    dateElement.className='formattedDate';
+
+    const textElement = document.createTextNode(todoText);
+    textElement.className = 'text-stuff';
+
+    card.appendChild(dateElement);
     card.appendChild(document.createElement('br'));
-    card.appendChild(document.createTextNode(`${todoText.value}`));
+    card.appendChild(textElement);
     card.appendChild(btn);
-    userList.appendChild(card);
+    cardGrid.appendChild(card);
 
     todoText.value = '';
     date.value = '';
@@ -58,4 +65,6 @@ function formatDate(date)
 
     return formattedToday;
 }
+
+
 
