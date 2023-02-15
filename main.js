@@ -36,14 +36,15 @@ function createCard(date, todoText, e)
     const card = document.createElement('div');
     card.className='card';
 
-    const dateElement = document.createTextNode(formattedDate);
-    dateElement.className='formattedDate';
+    const dateElement = document.createElement('h1');
+    dateElement.className='date-text';
+    dateElement.innerHTML = `${formattedDate}`;
 
-    const textElement = document.createTextNode(todoText);
+    const textElement = document.createTextNode(todoText.value);
     textElement.className = 'text-stuff';
 
     card.appendChild(dateElement);
-    card.appendChild(document.createElement('br'));
+    //card.appendChild(document.createElement('br'));
     card.appendChild(textElement);
     card.appendChild(btn);
     cardGrid.appendChild(card);
@@ -66,5 +67,9 @@ function formatDate(date)
     return formattedToday;
 }
 
-
+function getCurrentDate()
+{
+    let currentDate = new Date();
+    currentDate = formatDate(currentDate);
+}
 

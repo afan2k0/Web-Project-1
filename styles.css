@@ -37,6 +37,7 @@ header
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  text-align: center;
 }
 
 .delete{
@@ -50,15 +51,20 @@ header
   width: 100%;
 }
 
-.dateElement{
+.date-stuff{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex: 1;
   align-self: flex-auto;
-  opacity: 1;
-  height: 15%;
-  width: 100%;
+
+}
+
+.text-stuff{
+  flex-grow:1;
+  flex: 1;
+  text-align: start;
 }
 .delete:hover {
   background-color: rgba(173, 31, 143, 0.87);
@@ -69,6 +75,9 @@ header
   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
 }
 
-
+textarea{
+  outline: none;
+  font-size: 2em;
+}
 
 
