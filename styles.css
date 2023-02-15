@@ -12,40 +12,50 @@ header
 {
     color: red;
 }
-ul {
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));/*set you own values*/
-    /*demo purpose*/
-    counter-reset: lis;
-  }
-  
-  li {
-    display: block;
-    counter-increment: lis;
-  }
-  
-  li:before {
-    content: counter(lis);
-    /* end demo purpose */
-  }
-  
-  li:nth-child(4n - 1) {
-    grid-row: 3;
-    color: blue;
-  }
-  
-  li:nth-child(4n) {
-    grid-row: 4;
-    color: purple;
-  }
-  
-  li:nth-child(4n - 2) {
-    grid-row: 2;
-    color: green;
-  }
-  
-  li:nth-child(4n - 3) {
-    grid-row: 1;
-    color: red;
-  }
+.basic-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  grid-auto-rows: 360px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: baseline;
+  background: #353535;
+  font-size: 3rem;
+  color: #fff;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  transition: all 500ms;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.delete{
+  margin-top: auto;
+  opacity: 1;
+}
+/*
+.delete:hover {
+  background-color: red;
+  opacity: 1;
+  height: 20%;
+  width: 100%;
+}*/
+.card:hover{
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  display: inline-block;
+  /*transform: translateY(-3px) scale(1.1);*/
+}
+
+
+
+

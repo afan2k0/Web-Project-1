@@ -1,7 +1,7 @@
 
 const warning = document.querySelector('.warning');
 let loginForm = document.querySelector('.todo-entry');
-const userList = document.querySelector('.todo-list');
+const userList = document.querySelector('.basic-grid');
 loginForm.addEventListener('submit', onSubmit);
 
 function onSubmit(e)
@@ -9,31 +9,52 @@ function onSubmit(e)
     e.preventDefault();
     console.log('once');
     const todoText = document.querySelector('.todo-text');
-    const date = document.querySelector('.date');
+    const date = new Date(document.querySelector('.date').value);
+    console.log(date);
     if(todoText.value === '' || date.valueAsDate === null)
     {
         warning.innerHTML = 'Please enter all fields';
         setTimeout(() => warning.innerHTML='', 1000);
     }
-
     else
     {
-        console.log(date.valueAsDate);
-        const btn = document.createElement('button');
-        btn.className = 'delete';
-        btn.innerHTML = 'delete';
-        btn.addEventListener("click", function(e) {
-            e.target.parentNode.remove();
-          });
-        console.log('success');
-        const li = document.createElement('li');
-        li.appendChild(document.createTextNode(`${date.value}`));
-        //li.appendChild(document.write('<br>'));
-        li.appendChild(document.createTextNode(`${todoText.value}`));
-        li.appendChild(btn);
-        userList.appendChild(li);
-
-        todoText.value = '';
-        date.value = '';
+        createCard(date, todoText, e);
     }
 };
+
+function createCard(date, todoText, e)
+{
+    const formattedDate = formatDate(date);
+    console.log(formattedDate);
+    const btn = document.createElement('button');
+    btn.className = 'delete';
+    btn.innerHTML = 'delete';
+    btn.addEventListener("click", function(e) {
+        e.target.parentNode.remove();
+      });
+    console.log('success');
+    const card = document.createElement('div');
+    card.className='card';
+    card.appendChild(document.createTextNode(`${formattedDate}`));
+    card.appendChild(document.createElement('br'));
+    card.appendChild(document.createTextNode(`${todoText.value}`));
+    card.appendChild(btn);
+    userList.appendChild(card);
+
+    todoText.value = '';
+    date.value = '';
+};
+
+function formatDate(date)
+{
+    let yyyy = date.getFullYear();
+    let mm = date.getMonth() + 1; // Months start at 0!
+    let dd = date.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedToday = dd + '/' + mm + '/' + yyyy;
+
+    return formattedToday;
+}
