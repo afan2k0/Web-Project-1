@@ -7,13 +7,13 @@ loginForm.addEventListener('submit', onSubmit);
 function onSubmit(e)
 {
     e.preventDefault();
+    console.log('once');
     const todoText = document.querySelector('.todo-text');
     const date = document.querySelector('.date');
     if(todoText.value === '' || date.valueAsDate === null)
     {
         warning.innerHTML = 'Please enter all fields';
-        setTimeout(() => warning.remove(), 1000);
-
+        setTimeout(() => warning.innerHTML='', 1000);
     }
 
     else
